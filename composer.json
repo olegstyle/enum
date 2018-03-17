@@ -1,0 +1,22 @@
+{
+  "name": "olegstyle/enum",
+  "type": "library",
+  "description": "PHP Enumerator",
+  "license": "MIT",
+  "homepage": "http://bodev.pro/",
+  "authors": [
+    {
+      "name": "Oleh Borysenko",
+      "email": "olegstyle1@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "OlegStyle\\Enum\\": "src/"
+    }
+  }
+}
