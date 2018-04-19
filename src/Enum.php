@@ -117,8 +117,21 @@ abstract class Enum
     }
 
     /**
+     * @return static[]
+     */
+    public static function toArrayOfEnums(): array
+    {
+        $data = static::toArray();
+        $result = [];
+        foreach ($data as $key => $value) {
+            $result[$key] = new static($value);
+        }
+
+        return $result;
+    }
+
+    /**
      * @param mixed $value
-     * @return null|string
      */
     public static function search($value): ?string
     {
