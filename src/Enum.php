@@ -7,12 +7,7 @@ use UnexpectedValueException;
 use BadMethodCallException;
 
 /**
- * Class Enum
- * @package OlegStyle\Enum
- *
- * Create an enum by implementing this class and adding class constants.
- *
- * @author Oleh Borysenko <olegstyle1@gmail.com>
+ * Create an enum by implementing this class and adding class constants with magic methods in phpdoc.
  */
 abstract class Enum
 {
@@ -39,7 +34,8 @@ abstract class Enum
      */
     public function __construct($value)
     {
-        if (!$this->isValid($value)) {
+        $value = $this->prepareValue($value);
+        if (!static::isValid($value)) {
             throw new UnexpectedValueException("Value '$value' is not part of the enum " . get_called_class());
         }
         $this->value = $value;
@@ -51,6 +47,15 @@ abstract class Enum
     public function __toString(): string
     {
         return (string) $this->value;
+    }
+
+    /**
+     * @param mixed $value
+     * @return mixed
+     */
+    protected function prepareValue($value)
+    {
+        return $value;
     }
 
     /**
