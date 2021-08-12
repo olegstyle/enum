@@ -2,6 +2,7 @@
 
 namespace OlegStyle\Enum;
 
+use JsonSerializable;
 use ReflectionClass;
 use UnexpectedValueException;
 use BadMethodCallException;
@@ -9,7 +10,7 @@ use BadMethodCallException;
 /**
  * Create an enum by implementing this class and adding class constants with magic methods in phpdoc.
  */
-abstract class Enum
+abstract class Enum implements JsonSerializable
 {
     /**
      * Enum value
@@ -203,5 +204,10 @@ abstract class Enum
     public static function instanceFromValue($value): self
     {
         return new static($value);
+    }
+
+    public function jsonSerialize(): array
+    {
+        return $this->getValue();
     }
 }

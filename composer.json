@@ -3,7 +3,7 @@
   "type": "library",
   "description": "PHP Enumerator",
   "license": "MIT",
-  "homepage": "http://bodev.pro/",
+  "homepage": "https://bodev.pro",
   "authors": [
     {
       "name": "Oleh Borysenko",
@@ -12,7 +12,8 @@
     }
   ],
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.1",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
